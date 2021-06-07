@@ -40,7 +40,7 @@
       {{Session::get('user')['name']}}
 
   
-      <li><a  href="/logout">Logout</a></li>        
+      <li><a  href="/logout" onclick="logOut();">Logout</a></li>        
      
       @else     
 
