@@ -94,8 +94,15 @@
                                 </div>
                             </form>
                             <div class="links_Product_areas">
+                                <form action="/add_to_cart" method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{$products['id']}}">
+                                <input type="hidden" name="product_name" value="{{$products['name']}}">
+                                <input type="hidden" name="product_price" value="{{$products['price']}}">
+
+                                <button class="btn btn-success my-3" type="submit">Add To Cart</button>
                                 
-                                <a href="" class="btn btn-success my-3">Add To Cart</a>
+                                 </form>
                                 <a href="/" class="btn btn-danger">Back</a>
                             </div>
                             

@@ -17,3 +17,5 @@ Route::post('/new_registration',[App\Http\Controllers\UserController::class,'sto
 Route::get('/product',[App\Http\Controllers\ProductController::class,'index']);
 
 Route::get('/product_details/{id}',[App\Http\Controllers\ProductController::class,'viewProductSingle']);
+
+Route::post('/add_to_cart',[App\Http\Controllers\ProductController::class,'addToCart']);
