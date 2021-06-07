@@ -1,0 +1,48 @@
+.carousal-caption{
+
+    background-color: deepskyblue;
+    margin-bottom: 20px;
+}
+.custom-login{
+    height:500px;
+    width:100%;
+    padding-top: 100px;
+    
+    }
+.custom-registration{
+
+    height: 500px;
+    width: 100%;
+    padding-top: 100px;
+}
+#exampleInputPassword1{
+
+ margin-bottom: 20px;
+    
+}
+#mybutton{
+
+    margin-top: 20px;
+}
+.mylist ul li a{
+
+ color: white;
+ text-decoration: none;
+ display: flex; 
+ margin: 15px;
+ margin-left: 50px;
+font-size: 1rem;
+
+}
+#information{
+    width: 100%;
+    margin-top: 100px;    
+}
+.mynav ul li a{
+
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0 30px;
+  
+
+}
