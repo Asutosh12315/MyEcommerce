@@ -126,10 +126,10 @@ public function orderPlace(Request $request)
     if ($result) {
         
         Cart::where('user_id',$userID)->delete();
-        return back();
+        return back()->with('success','your order has been placed');
     }else{
 
-        return redirect("/ordernow");
+        return back()->with('failed','something went wrong !');
     }  
 
    }

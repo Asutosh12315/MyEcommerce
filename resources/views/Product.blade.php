@@ -223,7 +223,7 @@
                                 <div class="content">
                                     <h5 class="title"><a href="/product_details/{{$item['id']}}">{{$item['name']}}</a></h5>
                                     <span class="price">
-                                        <span class="new">{{$item['price']}}</span>
+                                        <span class="new">RS.{{$item['price']}}</span>
                                     </span>
                                 </div>
                             </div>

@@ -41,6 +41,11 @@
         
         alert('are you sure , you want to logout ?');
     }
+
+    function askUser() {
+        
+        alert('do you really want to remove this item ??');
+    }
 </script>
 </body>
 </html>

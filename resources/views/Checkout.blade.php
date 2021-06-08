@@ -3,8 +3,28 @@
 @section('content')
 <section id="checkout_one" class="ptb-100">
 <form action="/orderplace" method="POST">
-  @csrf     
+  @csrf   
+  
+  
    <div class="container">
+   <div class="results">
+
+@if(Session::get('success'))
+<div class="alert alert-success">
+
+    {{Session::get('success')}}
+
+</div>
+@endif
+
+@if(Session::get('failed'))
+<div class="alert alert-danger">
+
+    {{Session::get('failed')}}
+
+</div>
+@endif
+</div>
             <div class="row">                
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="checkout-area-bg bg-white">

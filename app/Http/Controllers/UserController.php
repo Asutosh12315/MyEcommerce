@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Session;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -21,11 +22,18 @@ class UserController extends Controller
     }
     public function checkAuth(Request $request)
     {
+        $request->validate([
+
+            'email'=>'required',
+
+            'password'=>'required'
+        ]);
+
         $user=User::where('email',$request->email)->first();
         
         if (!$user || !Hash::check($request->password,$user->password)) {
         
-            return back();
+            return back()->with('failed','invalid email or password entered');
         }
         else{
 
@@ -54,7 +62,13 @@ class UserController extends Controller
 
         if ($result) {
             
-            return"registered successfully";
+            return back()->with('success','you have successfully registered');
+        }
+        else{
+
+            return back()->with('fail','failed to registered');
+
+
         }
 
 
