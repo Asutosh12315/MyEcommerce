@@ -23,7 +23,7 @@
 
      
     <div class="col-sm-12 col-lg-4 mylist">   
-   
+    
     <ul >
     
     <li><a href="#">Home</a></li>

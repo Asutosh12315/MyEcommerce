@@ -10,84 +10,76 @@
                             <h3>Billings Information</h3>
                         </div>
                         <div class="check-out-form">
-                            <form method="post">
+                            <form action="/orderplace" method="POST">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-sm-=12 col-12">
-                                        <div class="form-group">
-                                            <label for="fname">First name</label>
-                                            <input type="text" required="" class="form-control" id="fname"
-                                                placeholder="First name *">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-=12 col-12">
-                                        <div class="form-group">
-                                            <label for="lname">Last name</label>
-                                            <input type="text" required="" class="form-control" id="lname"
-                                                placeholder="Last name *">
-                                        </div>
-                                    </div>
                                     <div class="col-lg-12 col-md-12 col-sm-=12 col-12">
                                         <div class="form-group">
-                                            <label for="cname">Company Name</label>
-                                            <input class="form-control" required="" type="text" id="cname"
-                                                placeholder="Company Name">
+                                            <label for="name">User name</label>
+                                            <input type="text" name="name" required="" class="form-control" id="name"
+                                                placeholder="User name *">
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="col-lg-12 col-md-12 col-sm-=12 col-12">
+                                        <div class="form-group">
+                                            <label for="cname">Company / House Name </label>
+                                            <input type="text" name="cname" class="form-control" required="" id="cname"
+                                                placeholder="Company / House Name *">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-=12 col-12">
                                         <div class="form-group">
                                             <label for="email">Email Addresse</label>
-                                            <input class="form-control" required="" type="text" id="email"
+                                            <input class="form-control" required="" type="email" name="email" id="email"
                                                 placeholder="info@gmail.com">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-=12 col-12">
                                         <div class="form-group">
                                             <label for="country">Country</label>
-                                            <select class="form-control first_null" id="country">
-                                                <option value="">Select an option...</option>
-                                                <option value="AX">usa</option>
-                                                <option value="AF">Afghanistan</option>
+                                            <select class="form-control first_null" id="country" name="country">
+                                                 <option value="">Select an option...</option>
+                                                <option value="India">India</option>
+                                                <option value="Bangladesh">Bangladesh</option>
+                                                <option value="Nepal">Nepal</option>
+                                                <option value="Bhutan">Bhutan</option>
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Pakisthan">Pakisthan</option>
+                                                <option value="UnitedStates">UnitedStates</option>
+                                                <option value="UnitedKingdom">UnitedKingdom</option>
+
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-=12 col-12">
                                         <div class="form-group">
                                             <label for="city">State/City</label>
-                                            <select class="form-control first_null" id="city">
-                                                <option value="">Select an option...</option>
-                                                <option value="AX">Aland Islands</option>
-                                                <option value="AF">Afghanistan</option>
-                                            </select>
+                                            <input type="text" class="form-control" id="city" name="city" placeholder="Enter Your City">
+                                                
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-=12 col-12">
                                         <div class="form-group">
-                                            <label for="zip">State/City</label>
-                                            <input type="text" class="form-control" id="zip" required=""
+                                            <label for="zip">Pin Code</label>
+                                            <input type="text" class="form-control" id="zip" name="zip" required=""
                                                 placeholder="Enter Your zipcode">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-=12 col-12">
                                         <div class="form-group">
                                             <label for="faddress">Full Address</label>
-                                            <input type="text" class="form-control" id="faddress" required=""
+                                            <input type="text" name="faddress" class="form-control" id="faddress" required=""
                                                 placeholder="Enter your address here..">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-=12 col-12">
                                         <div class="form-group">
                                             <label for="messages">Additional Notes</label>
-                                            <textarea rows="5" class="form-control" id="messages"
-                                                placeholder="Order notes"></textarea>
+                                            <textarea rows="10" class="form-control" id="messages" name="messages"
+                                                placeholder="Leave your message here ..."></textarea>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-=12 col-12">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="materialUnchecked">
-                                            <label class="form-check-label" for="materialUnchecked">Save In Address
-                                                Book</label>
-                                        </div>
-                                    </div>
+                                
                                 </div>
                             </form>
                         </div>
@@ -107,34 +99,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($product as $item)
                                     <tr>
-                                        <td>Blue Dress For Woman <span class="product-qty">x 2</span>
+                                        <td>{{$item['product_name']}}<span class="product-qty">x 2</span>
                                         </td>
-                                        <td>$90.00</td>
+                                        <td>RS.{{$item['product_price']}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>Lether Gray Tuxedo <span class="product-qty">x 1</span>
-                                        </td>
-                                        <td>$55.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Woman Full Sliv Dresss <span class="product-qty">x 3</span>
-                                        </td>
-                                        <td>$204.00</td>
-                                    </tr>
+                                   
                                 </tbody>
+                                @endforeach
                                 <tfoot>
                                     <tr>
                                         <th>SubTotal</th>
-                                        <td class="product-subtotal">$349.00</td>
+                                        <td class="product-subtotal">RS.{{$total}}</td>
                                     </tr>
                                     <tr>
                                         <th>Shipping</th>
-                                        <td>Free Shipping</td>
+                                        <td>RS.100 For Shipping</td>
                                     </tr>
                                     <tr>
                                         <th>Total</th>
-                                        <td class="product-subtotal">$349.00</td>
+                                        <td class="product-subtotal">RS.{{$total+100}}</td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -168,7 +153,7 @@
                                         credit card if you don't have a PayPal account.</p>
                                 </div>
                             </div>
-                        </div> <a href="#!" class="theme-btn-one btn-black-overlay btn_sm">Place Order</a>
+                        </div> <a href="#!" class="btn btn-primary orderbutton">Place Order</a>
                     </div>
                 </div>
             </div>

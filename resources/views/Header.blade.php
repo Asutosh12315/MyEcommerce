@@ -1,3 +1,11 @@
+<?php 
+use App\Http\Controllers\ProductController;
+
+$total=ProductController::cartItem();
+
+
+
+?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><i class="fab fa-shopware fa-3x"></i></a>
@@ -22,9 +30,10 @@
           <a class="nav-link" href="#">Contact Us</a>
         </li>
       </ul>
-      <form class="d-flex text-center">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-light" type="submit">Search</button>
+      <form action="/search_product" method="GET" class="d-flex text-center">
+  
+      <input class="form-control me-2" type="text" name="query" placeholder="Search" aria-label="Search">
+      <button class="btn btn-light" type="search">Search</button>
       </form>    
     
     </div> 
@@ -33,7 +42,7 @@
 
     
       <li>    
-      <a href=""> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart Item()</a></li>
+      <a href="/cart_list"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart Item({{$total}})</a></li>
 
       @if(Session::has('user'))
      
