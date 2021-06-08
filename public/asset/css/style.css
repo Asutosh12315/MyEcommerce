@@ -64,3 +64,21 @@ font-size: 1rem;
 
     resize: none;
 }
+#orderbutton{
+
+ margin-left: 150px;
+ margin-top: 30px;
+ margin-bottom: 30px;
+}
+.custom-product{
+
+    margin-top: 30px;
+    
+}
+
+.cart-list-divider{
+
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px
+}

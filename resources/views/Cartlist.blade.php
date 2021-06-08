@@ -6,13 +6,13 @@
 
   <div class="col-sm-10">
   
-  <div class="trending-wrapper">
+  <div class="cartlist-wrapper">
     
     <h2>Cart List</h2>
     <a href="/ordernow" class="btn btn-success">Order Now</a><br><br> 
     <div class="">
         @foreach($data as $item)
-       <div class="row search-item cart-list-divider">
+       <div class="row search-item">
           
         <div class="col-sm-3">
         

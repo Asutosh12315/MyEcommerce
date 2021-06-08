@@ -2,21 +2,23 @@
 
 @section('content')
 <section id="checkout_one" class="ptb-100">
-        <div class="container">
-            <div class="row">
+<form action="/orderplace" method="POST">
+  @csrf     
+   <div class="container">
+            <div class="row">                
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="checkout-area-bg bg-white">
                         <div class="check-heading">
                             <h3>Billings Information</h3>
                         </div>
                         <div class="check-out-form">
-                            <form action="/orderplace" method="POST">
+                           
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-=12 col-12">
                                         <div class="form-group">
                                             <label for="name">User name</label>
                                             <input type="text" name="name" required="" class="form-control" id="name"
-                                                placeholder="User name *">
+                                                value="{{Session::get('user')['name']}}">
                                         </div>
                                     </div>
                                    
@@ -31,7 +33,7 @@
                                         <div class="form-group">
                                             <label for="email">Email Addresse</label>
                                             <input class="form-control" required="" type="email" name="email" id="email"
-                                                placeholder="info@gmail.com">
+                                                value="{{Session::get('user')['email']}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-=12 col-12">
@@ -76,12 +78,13 @@
                                         <div class="form-group">
                                             <label for="messages">Additional Notes</label>
                                             <textarea rows="10" class="form-control" id="messages" name="messages"
-                                                placeholder="Leave your message here ..."></textarea>
+                                                placeholder="Leave your message here"></textarea>
                                         </div>
+                                        
                                     </div>
-                                
+                                    
                                 </div>
-                            </form>
+                          
                         </div>
                     </div>
                 </div>
@@ -133,32 +136,34 @@
                             <div class="payment_option">
                                 <div class="custome-radio">
                                     <input class="form-check-input" required="" type="radio" name="payment_option"
-                                        id="exampleRadios3" value="option3" checked="">
+                                        id="exampleRadios3" value="Direct Bank Transfer" checked="">
                                     <label class="form-check-label" for="exampleRadios3">Direct Bank Transfer</label>
                                     <p data-method="option3" class="payment-text">There are many variations of passages
                                         of Lorem Ipsum available, but the majority have suffered alteration.</p>
                                 </div>
                                 <div class="custome-radio">
                                     <input class="form-check-input" type="radio" name="payment_option"
-                                        id="exampleRadios4" value="option4">
+                                        id="exampleRadios4" value="Check Payment">
                                     <label class="form-check-label" for="exampleRadios4">Check Payment</label>
                                     <p data-method="option4" class="payment-text">Please send your cheque to Store Name,
                                         Store Street, Store Town, Store State / County, Store Postcode.</p>
                                 </div>
                                 <div class="custome-radio">
                                     <input class="form-check-input" type="radio" name="payment_option"
-                                        id="exampleRadios5" value="option5">
+                                        id="exampleRadios5" value="Pay via PayPal">
                                     <label class="form-check-label" for="exampleRadios5">Paypal</label>
                                     <p data-method="option5" class="payment-text">Pay via PayPal; you can pay with your
                                         credit card if you don't have a PayPal account.</p>
                                 </div>
                             </div>
-                        </div> <a href="#!" class="btn btn-primary orderbutton">Place Order</a>
+                        </div> 
                     </div>
                 </div>
+                
             </div>
-        </div>
-
+    </div>
+<button class="btn btn-primary" type="submit" id="orderbutton">Place Order</button>
+</form>
 
 
 @endsection

@@ -8,31 +8,32 @@
   
   <div class="trending-wrapper">
     
-    <h2>Order List</h2>
+    <h2 class="text-center">Order List</h2>
     <div class="">
         @foreach($orders as $item)
        <div class="row search-item cart-list-divider">
           
         <div class="col-sm-3">
         
-        <a href="/details/{{$item->id}}">
+        <a href="/product_details/{{$item->id}}">
   
-        <img class="search-img" src="{{asset('asset\images')}}\{{$item->gallery}}"style="height: 200px;"> 
+        <img class="search-img" src="{{asset('asset\images')}}\{{$item->gallery}}"style="height: 150px;"> 
         
 
         </a>
         
         </div>
         <div class="col-sm-3">
-               
+              
         <div class="">
-        <h2>{{$item->name}}</h2>
+        <h3>{{$item->product_name}}</h3>
         <h5>Delivery Status : {{$item->status}}</h5>
         <h5>Payment Status : {{$item->payment_status}}</h5>
-        <h5>Payment Method : {{$item->payment_method}}</h5>
-        <h5>Delivery Address : {{$item->address}}</h5>
-        
-
+        <h6>Payment Method : {{$item->payment_option}}</h6>
+        <h6>Delivery Address : {{$item->faddress}}</h6>
+        <h6>Delevered To : {{$item->name}}</h6>
+        <h6>Ordered On : {{$item->created_at}}</h6>
+       
         </div> 
                
         </div>

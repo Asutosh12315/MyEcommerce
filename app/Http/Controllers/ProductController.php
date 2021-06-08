@@ -97,11 +97,55 @@ public function checkOut()
     
 
 }
-public function orderPlace()
+public function orderPlace(Request $request)
 {
+    $userID=Session::get('user')['id'];
+
+    $allCartItem=Cart::where('user_id',$userID)->get();
+
+    foreach ($allCartItem as $cart) { 
+
+    $order= new Order;
+
+    $order->product_id=$cart['product_id'];
+    $order->product_name=$cart['product_name'];
+    $order->user_id=$cart['user_id'];
+    $order->name=$request->name;
+    $order->cname=$request->cname;
+    $order->email=$request->email;
+    $order->city=$request->city;
+    $order->zip=$request->zip;
+    $order->faddress=$request->faddress;
+    $order->messages=$request->messages;
+    $order->status="undelivered";
+    $order->payment_option=$request->payment_option;
+    $order->payment_status="pending";
+    $result=$order->save();
+
+    }
+    if ($result) {
+        
+        Cart::where('user_id',$userID)->delete();
+        return back();
+    }else{
+
+        return redirect("/ordernow");
+    }  
+
+   }
+
+   public function myOrders()
+   {
     
+    $userID=Session::get('user')['id'];
 
-   
+    $orders=DB::table('products')
+    ->join('orders','products.id','orders.product_id')
+    ->where('orders.user_id',$userID)
+    ->get();
 
-}
+    return view('Order',['orders'=>$orders]);
+
+   }
+
 }

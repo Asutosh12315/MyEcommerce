@@ -29,3 +29,5 @@ Route::get('/cart_list',[App\Http\Controllers\ProductController::class,'cartList
 Route::get('/ordernow',[App\Http\Controllers\ProductController::class,'checkOut']);
 
 Route::post('/orderplace',[App\Http\Controllers\ProductController::class,'orderPlace']);
+
+Route::get('/myorder',[App\Http\Controllers\ProductController::class,'myOrders']);
